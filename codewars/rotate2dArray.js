@@ -13,3 +13,14 @@ function rotateImage(a) {
     }
     return newArr
 }
+// solution with O(1) space complexity
+function rotateImage(a) {
+    a.reverse()
+    for(let i=0;i<a.length;i++){
+        for(let j =i;j<a.length;j++){
+            [a[i][j],a[j][i]] = [a[j][i],a[i][j]]
+        }
+    }
+    return a
+
+}
