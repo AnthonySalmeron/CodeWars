@@ -3,12 +3,12 @@
 // You may assume no duplicates in the array.
 var searchInsert = function(nums, target) {
     let middle = Math.floor(nums.length/2)
-    while(middle>0 && middle<nums.length){
+    while(middle>=0 && middle<nums.length){
         if(nums[middle]==target){
             return middle
         }else if(target<nums[middle]){
             middle = Math.floor(middle/2)
-        }else if(middle=0) {
+        }else if(middle==0) {
             break;
         }else{
             middle = middle+Math.floor(middle/2)
