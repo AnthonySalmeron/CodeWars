@@ -1,0 +1,2 @@
+//create a function that returns the input array of numbers sorted in ascending order of how many 1's are in its binary representation, if two numbers have the same number of one's in their binary representation, sort them by actual value
+var sortByBits = arr=> arr.sort((a,b)=>a.toString(2).split('').filter(el=>el==="1").length -b.toString(2).split('').filter(el=>el==="1").length ? a.toString(2).split('').filter(el=>el==="1").length -b.toString(2).split('').filter(el=>el==="1").length : a-b)
