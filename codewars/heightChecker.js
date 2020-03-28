@@ -1,4 +1,4 @@
-Check to make sure an array containing heights for people is arranged from smallest to biggest, return the smallest number of people that need to be moved to make the ordering accurate
+// Check to make sure an array containing heights for people is arranged from smallest to biggest, return the smallest number of people that need to be moved to make the ordering accurate
 // basically a variant of counting sort, will decide where the numbers should be and compare to where they actually are
 var heightChecker = function(heights) {
     let switches= 0,track =[],min = Math.min(...heights),max=Math.max(...heights)
