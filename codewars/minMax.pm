@@ -9,3 +9,5 @@ sub miniMaxSum {
     $max = $min - $args[0] + $args[4];
     print $min," ",$max;
 }
+
+# Complete the miniMaxSum function in the editor below. It should print two space-separated integers on one line: the minimum sum and the maximum sum of of elements. 
