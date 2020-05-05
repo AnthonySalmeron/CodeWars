@@ -15,6 +15,5 @@ sub breakingRecords {
     }
     return ($maxbreak,$minbreak)
 }
-
 # You're given a series of scores for tests, your first score is the baseline for highest and lowest score. Return the number of times
 # you break the highest and lowest score
