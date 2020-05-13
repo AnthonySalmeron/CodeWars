@@ -8,3 +8,4 @@ sub divisibleSumPairs {
     }
     return $counter;
 }
+# given an array of integers of length n, find all the combinations of pairs that will be divisible by k
