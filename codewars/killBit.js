@@ -7,3 +7,13 @@ let helper = e => {
     }
     return re
 }
+
+//different perl solution
+sub arrayPacking {
+	my ($a) = @_;
+	my $ret = 0;
+	for(my $i=0;$i<scalar @$a;$i++){
+		$ret+= $a->[$i] << 8*$i;
+	}
+	return $ret;
+}
