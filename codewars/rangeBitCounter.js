@@ -25,3 +25,11 @@ sub rangeBitCount{
     }
     return $res;
 }
+// python
+def rangeBitCount(a, b):
+    var = 0
+    for i in range(a,b+1):
+        while i > 0:
+            var+= i & 1
+            i = i >> 1
+    return var
