@@ -27,6 +27,9 @@ sub rangeBitCount{
 }
 // python
 def rangeBitCount(a, b):
+  """
+  counts the number of 1's in the bits between these numbers
+  """
     var = 0
     for i in range(a,b+1):
         while i > 0:
