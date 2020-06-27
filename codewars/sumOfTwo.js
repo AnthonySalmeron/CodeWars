@@ -18,3 +18,13 @@ function sumOfTwo(a, b, v) {
 // 	}
 // 	return 0;
 // }
+
+// python
+// def sumOfTwo(a, b, v):
+//     dict = {}
+//     for x in a:
+//         dict[v-x] = 1
+//     for i in b:
+//         if dict.get(i):
+//             return True
+//     return False
