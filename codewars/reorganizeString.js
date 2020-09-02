@@ -17,6 +17,7 @@ var reorganizeString = function(s) {
         if(charCounts[letter]>1){
             if (charCounts[letter]>highestCount) highestCount = charCounts[letter]
             
+            if(!degreeOfChars[charCounts[letter]]) degreeOfChars[charCounts[letter]] = {}
             degreeOfChars[charCounts[letter]][letter] = 1
             letter === 2 ?
                 delete degreeOfChars[1][letter] :
@@ -41,6 +42,7 @@ var reorganizeString = function(s) {
             char = tempArr.pop()
             output+= char
             delete degreeOfChars[highestCount][char]
+            if(!degreeOfChars[highestCount-1]) degreeOfChars[highestCount-1] = {}
             degreeOfChars[highestCount-1][char] = 1
         }else{
             while(!tempArr.length){
