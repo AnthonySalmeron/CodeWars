@@ -27,12 +27,14 @@ var reorganizeString = function(s) {
     
     let output = ""
     while(output.length<s.length){
+        console.log(degreeOfChars)
         let tempArr = Object.keys(degreeOfChars[highestCount])
         let char = tempArr.pop()
         let downward = 0
         if(char!=output[output.length-1]){
             output+= char
             delete degreeOfChars[highestCount][char]
+            if(!degreeOfChars[highestCount-1]) degreeOfChars[highestCount-1] = {}
             degreeOfChars[highestCount-1][char] = 1
             if(!tempArr.length){
                 delete degreeOfChars[highestCount]
@@ -52,6 +54,7 @@ var reorganizeString = function(s) {
             char = tempArr.pop()
             output+= char
             delete degreeOfChars[highestCount-downward][char]
+            if(!degreeOfChars[highestCount-(downward+1)]) degreeOfChars[highestCount-(downward+1)] = {}
             degreeOfChars[highestCount-(downward+1)][char] = 1
             if(!tempArr.length) delete degreeOfChars[highestCount-downward]
         }
