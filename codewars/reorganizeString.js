@@ -2,32 +2,31 @@ var reorganizeString = function(s) {
     //First thing I noticed is that if there is any character in the string which appears > S.length/2 times, then it's an immediate fail 
     if (s.length === 1) return ""
     const maxLen = Math.ceil(s.length/2)
-
+    
     let charCounts = {}
     let degreeOfChars = {1:{}}
     let highestCount = 1
     for(let letter of s){
         if(charCounts[letter]) charCounts[letter]++
         else charCounts[letter] = 1
-
+        
         if (charCounts[letter] > maxLen) return ""
-
-        degreeOfChars[1][letter] = 1
-
+        
+        if(charCounts[letter] === 1) degreeOfChars[1][letter] = 1
+        
         if(charCounts[letter]>1){
             if (charCounts[letter]>highestCount) highestCount = charCounts[letter]
-
+            
             if(!degreeOfChars[charCounts[letter]]) degreeOfChars[charCounts[letter]] = {}
             degreeOfChars[charCounts[letter]][letter] = 1
-            letter === 2 ?
-                delete degreeOfChars[1][letter] :
+            charCounts[letter] > 1 ?
                 delete degreeOfChars[charCounts[letter]-1][letter]
+                : 0
         }
     }
-
+    
     let output = ""
     while(output.length<s.length){
-        console.log(degreeOfChars)
         let tempArr = Object.keys(degreeOfChars[highestCount])
         let char = tempArr.pop()
         let downward = 0
@@ -49,7 +48,9 @@ var reorganizeString = function(s) {
         }else{
             while(!tempArr.length){
                 downward++
-                tempArr = Object.keys(degreeOfChars[highestCount-downward])
+                if(degreeOfChars[highestCount-downward]){
+                    tempArr = Object.keys(degreeOfChars[highestCount-downward])
+                }
             }
             char = tempArr.pop()
             output+= char
