@@ -1,22 +1,26 @@
+// Given a string S, check if the letters can be rearranged so that two characters that are adjacent to each other are not the same.
+
+// If possible, output any possible result.  If not possible, return the empty string.
+
 var reorganizeString = function(s) {
     //First thing I noticed is that if there is any character in the string which appears > S.length/2 times, then it's an immediate fail 
     if (s.length === 1) return ""
     const maxLen = Math.ceil(s.length/2)
-    
+
     let charCounts = {}
     let degreeOfChars = {1:{}}
     let highestCount = 1
     for(let letter of s){
         if(charCounts[letter]) charCounts[letter]++
         else charCounts[letter] = 1
-        
+
         if (charCounts[letter] > maxLen) return ""
-        
+
         if(charCounts[letter] === 1) degreeOfChars[1][letter] = 1
-        
+
         if(charCounts[letter]>1){
             if (charCounts[letter]>highestCount) highestCount = charCounts[letter]
-            
+
             if(!degreeOfChars[charCounts[letter]]) degreeOfChars[charCounts[letter]] = {}
             degreeOfChars[charCounts[letter]][letter] = 1
             charCounts[letter] > 1 ?
@@ -24,7 +28,7 @@ var reorganizeString = function(s) {
                 : 0
         }
     }
-    
+
     let output = ""
     while(output.length<s.length){
         let tempArr = Object.keys(degreeOfChars[highestCount])
